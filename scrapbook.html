@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2023 REWIND</title>
+        <link rel="stylesheet" href="scrapbook.css">
+    </head>
+    <body>
+        <section class="container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slide-1" src="images/2.png"/>
+                    <img id="slide-2" src="images/3.png"/>
+                    <img id="slide-3" src="images/4.png"/>
+                    <img id="slide-4" src="images/5.png"/>
+                    <img id="slide-5" src="images/6.png"/>
+                    <img id="slide-6" src="images/7.png"/>
+                    <img id="slide-7" src="images/8.png"/>
+                    <img id="slide-8" src="images/9.png"/>
+                    <img id="slide-9" src="images/10.png"/>
+                    <img id="slide-10" src="images/11.png"/>
+                    <img id="slide-11" src="images/12.png"/>
+                    <img id="slide-12" src="images/13.png"/>
+                </div>
+                <div class="slider-nav">
+                    <a href="#slide-1"></a>
+                    <a href="#slide-2"></a>
+                    <a href="#slide-3"></a>
+                    <a href="#slide-4"></a>
+                    <a href="#slide-5"></a>
+                    <a href="#slide-6"></a>
+                    <a href="#slide-7"></a>
+                    <a href="#slide-8"></a>
+                    <a href="#slide-9"></a>
+                    <a href="#slide-10"></a>
+                    <a href="#slide-11"></a>
+                    <a href="#slide-12"></a>
+                    <button class="prev-button" onclick="prevSlide()">&#8249;</button>
+                    <button class="next-button" onclick="nextSlide()">&#8250;</button>
+                </div>
+            </div>
+        </section>
+        <script>
+            let currentSlide = 0;
+            const totalSlides = 12;
+
+            function showSlide(index) {
+                const slider = document.querySelector('.slider');
+                slider.scrollTo({
+                    left: slider.clientWidth * index,
+                    behavior: 'smooth'
+                });
+                currentSlide = index;
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+        </script>
+    </body>
+</html>
